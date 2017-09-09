@@ -1,0 +1,39 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALLOWED_HOSTS	../excursus/excursus/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:28
+AUTH_PASSWORD_VALIDATORS	../excursus/excursus/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:87
+BASE_DIR	../excursus/excursus/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:16
+DATABASES	../excursus/excursus/settings.py	/^DATABASES = {$/;"	kind:variable	line:76
+DEBUG	../excursus/excursus/settings.py	/^DEBUG = True$/;"	kind:variable	line:26
+INSTALLED_APPS	../excursus/excursus/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:33
+LANGUAGE_CODE	../excursus/excursus/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	kind:variable	line:106
+MIDDLEWARE	../excursus/excursus/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:42
+ROOT_URLCONF	../excursus/excursus/settings.py	/^ROOT_URLCONF = 'excursus.urls'$/;"	kind:variable	line:52
+RoomsConfig	../excursus/rooms/apps.py	/^class RoomsConfig(AppConfig):$/;"	kind:class	line:4
+SECRET_KEY	../excursus/excursus/settings.py	/^SECRET_KEY = 'rlskv03ye*7)8bik)n^yjrezft_ha_v1drre$8z%dxrpf0tog8'$/;"	kind:variable	line:23
+STATIC_URL	../excursus/excursus/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:120
+TEMPLATES	../excursus/excursus/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:54
+TIME_ZONE	../excursus/excursus/settings.py	/^TIME_ZONE = 'UTC'$/;"	kind:variable	line:108
+USE_I18N	../excursus/excursus/settings.py	/^USE_I18N = True$/;"	kind:variable	line:110
+USE_L10N	../excursus/excursus/settings.py	/^USE_L10N = True$/;"	kind:variable	line:112
+USE_TZ	../excursus/excursus/settings.py	/^USE_TZ = True$/;"	kind:variable	line:114
+WSGI_APPLICATION	../excursus/excursus/settings.py	/^WSGI_APPLICATION = 'excursus.wsgi.application'$/;"	kind:variable	line:70
+__init__.py	../excursus/excursus/__init__.py	1;"	kind:file	line:1
+__init__.py	../excursus/rooms/__init__.py	1;"	kind:file	line:1
+__init__.py	../excursus/rooms/migrations/__init__.py	1;"	kind:file	line:1
+admin.py	../excursus/rooms/admin.py	1;"	kind:file	line:1
+application	../excursus/excursus/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../excursus/rooms/apps.py	1;"	kind:file	line:1
+manage.py	../excursus/manage.py	1;"	kind:file	line:1
+models.py	../excursus/rooms/models.py	1;"	kind:file	line:1
+name	../excursus/rooms/apps.py	/^    name = 'rooms'$/;"	kind:variable	line:5
+settings.py	../excursus/excursus/settings.py	1;"	kind:file	line:1
+tests.py	../excursus/rooms/tests.py	1;"	kind:file	line:1
+urlpatterns	../excursus/excursus/urls.py	/^urlpatterns = [$/;"	kind:variable	line:19
+urls.py	../excursus/excursus/urls.py	1;"	kind:file	line:1
+views.py	../excursus/rooms/views.py	1;"	kind:file	line:1
+wsgi.py	../excursus/excursus/wsgi.py	1;"	kind:file	line:1
