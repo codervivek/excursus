@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rooms.apps.RoomsConfig',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -78,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'excursus',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
+        'USER': 'vivekraj',
+        'PASSWORD': 'heysiri',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -123,3 +124,22 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+
+redis_host = os.environ.get('REDIS_HOST', 'localhost')
+
+# Channel layer definitions
+# http://channels.readthedocs.org/en/latest/deploying.html#setting-up-a-channel-backend
+CHANNEL_LAYERS = {
+    "default": {
+        # This example app uses the Redis channel layer implementation asgi_redis
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [(redis_host, 3379)],
+        },
+        "ROUTING": "excursus.routing.channel_routing",
+    },
+}
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"

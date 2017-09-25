@@ -1,0 +1,13 @@
+{%extends "base.html" %}
+{% block title %}
+Post
+{% endblock title %}
+{% block header_text %}
+post.text
+{% endblock header_text %}}
+{% block content %}
+<p>{{post.user.username}}</p>
+<p>{{post.category.name}}</p>
+<p>{{post.text}}</p>
+<p>post.user</p>
+{% endblock content %}
