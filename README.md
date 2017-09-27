@@ -13,7 +13,7 @@ Install django, redis, django-channels (as the final project will be realtime) a
 
 ### Installing
 
-Create a vitual enviroment if you have deal with multiple pyhton projects.
+Create a vitual enviroment if you have deal with multiple python projects.
 
 ```
 sudo apt-get install python-virtualenv
