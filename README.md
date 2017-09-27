@@ -39,7 +39,7 @@ sudo apt-get install redis-server
 ```
 
 Follow [these instructions](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04) to run PostgreSQL database.
-PostgreSQL provides much better seacrhing, indexing and scaliblity options than SQLite.
+PostgreSQL provides much better searching, indexing and scaliblity options.
 
 Configure your Database settings in settings.py to run the database. Assign DEBUG False and configure the Apache/Nginx to host the django app,PostgreSQL database and static files.
 
