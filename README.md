@@ -30,12 +30,14 @@ cd ~/virtualenvironment/my_new_app/bin
 source activate
 ```
 
-To install django, channels and redis
+To install django, channels and redis.
+Note: Use sudo only if some errors pop up.
 
 ```
 sudo pip3 install django
 sudo pip3 install channels
 sudo apt-get install redis-server
+sudo pip3 install asgi_redis
 ```
 
 Follow [these instructions](https://www.digitalocean.com/community/tutorials/how-to-use-postgresql-with-your-django-application-on-ubuntu-14-04) to run PostgreSQL database.
