@@ -4,7 +4,7 @@ A discussions portal
 
 ## Getting Started
 
-Clone or fork the repo to make changes or test the portal.
+Clone or fork the repo to make changes and test the portal.
 
 ### Prerequisites
 
