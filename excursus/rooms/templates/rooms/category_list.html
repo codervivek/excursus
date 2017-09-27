@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Hashtags
+{% endblock title %}
+
+{% block content %}
+    <h1 class="text-center">#Hashtags</h1><hr>
+
+    {% if category_list %}
+
+      {% for category in category_list %}<div class="card" style="width: 70rem;">
+            <div class="card-body">
+              <a href="{{ category.get_absolute_url }}"><h3 class="card-title"> #{{category.name }}</h3></a>
+              <div class="card-subtitle text-muted"> Created on {{ category.created_date}}</div>
+            </div>
+          </div>
+      {% endfor %}
+
+    {% else %}
+      <p>There are no categories (Hashtags).</p>
+    {% endif %}       
+{% endblock %}

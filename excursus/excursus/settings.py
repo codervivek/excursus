@@ -25,7 +25,7 @@ SECRET_KEY = 'rlskv03ye*7)8bik)n^yjrezft_ha_v1drre$8z%dxrpf0tog8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -119,7 +119,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
@@ -136,7 +135,7 @@ CHANNEL_LAYERS = {
         # This example app uses the Redis channel layer implementation asgi_redis
         "BACKEND": "asgi_redis.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [(redis_host, 3379)],
+            "hosts": [(redis_host, 6379)],
         },
         "ROUTING": "excursus.routing.channel_routing",
     },

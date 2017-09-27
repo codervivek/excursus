@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Posts on #{{ category.name }}{% endblock %}
+
+{% block menu %}
+
+{% endblock %}
+
+{% block header_text %}<div class="text-center">Posts on #{{ category.name }}</div><hr>{% endblock %}
+{% block content %}
+    {% for post in category.post_set.all %}
+    
+        <div class="card" style="width: 70rem;">
+            <div class="card-body">
+              <a href="{{ post.category.get_absolute_url }}"><h3 class="card-title">#{{ post.category.name }}</h3></a>
+                <a href="{{ post.get_absolute_url }}"><h5 class="card-text mb-2 text-center">{{ post.text_intro }}</h5><br></a>
+              <div class="card-subtitle text-muted">{{ post.user.username }} posted at {{ post.created_date}}</div>
+            </div>
+          </div>
+    {% empty %}
+        <p class="empty">No post yet.</p>
+    {% endfor %}
+{% endblock %}

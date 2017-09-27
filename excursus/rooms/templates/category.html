@@ -6,13 +6,65 @@
 {% block content %}
 
     <p>Currently available post (make more in the <a href="/admin">admin</a>):</p>
-
+    <button class="post-button">POST</button>
+    <textarea class="content-post"></textarea>
+    <hr>
+    <div id="posts">
     {% for post in posts %}
         <p>
-            <a href="{{ post.get_absolute_url }}">{{ post.text }}</a>
+            <div class="post" data-post-id="{{ post.id }}">
+                <h2>{{ post.created_date|date:"D d M Y H:i" }}</h2>
+                <a href="{{ post.get_absolute_url }}">{{ post.text }}</a>
+            </div>
         </p>
     {% empty %}
-        <p class="empty">No liveblogs yet.</p>
+        <p class="empty">No post yet.</p>
     {% endfor %}
+    </div>
     <p><a href="{% url 'logout' %}"</p>
 {% endblock %}
+{% block extra_body %}
+<script>
+    $(function () {
+        var ws_path =  window.location.pathname + "stream/";
+        console.log("Connecting to " + ws_path);
+
+        var webSocketBridge = new channels.WebSocketBridge();
+        webSocketBridge.connect(ws_path);
+        webSocketBridge.listen(function(data) {
+            console.log("Got message " + data);
+            // Create the inner content of the post div
+            var content = "<h2>" + data.created_date + "</h2>" + data.text;
+            // See if there's a div to replace it in, or if we should add a new one
+            var existing = $("div[data-post-id=" + data.id + "]");
+            if (existing.length) {
+                existing.html(content);
+            } else {
+                var newdiv = $("<div class='post' data-post-id='" + data.id + "'>" + content + "</div>");
+                $("#posts").prepend(newdiv);
+            }
+        });
+
+        // save blog post
+        $(".post-button").click(function(){
+            if($(".content-post").val() == "")
+            {
+                alert("Empty text");
+            }
+            else
+            {
+                var content = $(".content-post").val()
+                webSocketBridge.send({"post":content});
+                console.log(content)
+                $(".content-post").val('');
+            }
+
+        });
+
+
+        // Helpful debugging
+        webSocketBridge.socket.onopen = function() { console.log("Connected to notification socket"); }
+        webSocketBridge.socket.onclose = function() { console.log("Disconnected to notification socket"); }
+    });
+</script>
+{% endblock extra_body %}

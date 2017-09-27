@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Posts{% endblock %}
-{% block header_text %}<div class="text-center">Posts</div><hr>{% endblock %}
+{% block title %}Posts on #{{ category.name }}{% endblock %}
+{% block header_text %}<div class="text-center">Posts on #{{ category.name }}</div><hr>{% endblock %}
 
 {% block content %}
-    {% for post in post %}
+    {% for post in category.post_set.all %}
     
         <div class="card" style="width: 70rem;">
             <div class="card-body">
@@ -20,5 +20,4 @@
     {% empty %}
         <p class="empty">No post yet.</p>
     {% endfor %}
-    <p><a href="{% url 'logout' %}"</p>
 {% endblock %}

@@ -11,7 +11,7 @@ class Category(models.Model):
 
     name=models.CharField(max_length=150, help_text="Enter a new category")
     
-    slug = models.SlugField()
+    slug = models.SlugField(help_text="Specify url",unique=True)
 
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -19,7 +19,7 @@ class Category(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return "/category/%s/" % self.slug
+        return "/rooms/category/%s/" % self.slug
 
     @property
     def group_name(self):
@@ -28,13 +28,14 @@ class Category(models.Model):
 
 class Post(models.Model):
 
-    text=models.CharField(max_length=2000, help_text="Enter post")
+    text=models.TextField(max_length=2000, help_text="Enter post")
 
     user=models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE)
 
-    category=models.ForeignKey(Category,related_name="posts", on_delete=models.CASCADE)
+    category=models.ForeignKey(Category, on_delete=models.CASCADE)
 
     created_date = models.DateTimeField(default=timezone.now)
+
 
     def get_absolute_url(self):
         return reverse('post-detail', args=[str(self.id)])
@@ -43,7 +44,7 @@ class Post(models.Model):
         return "#%i: %s" % (self.id, self.text_intro())
 
     def text_intro(self):
-        return self.text[:50]
+        return self.text[:300]
 
     def text_body(self):
         return linebreaks_filter(self.text)
@@ -51,8 +52,8 @@ class Post(models.Model):
     def send_notification(self):
         notification = {
             "id": self.id,
-            "html": self.text_body(),
-            "created": self.created_date.strftime("%a %d %b %Y %H:%M"),
+            "text": self.text_body(),
+            "created_date": self.created_date.strftime("%a %d %b %Y %H:%M"),
         }
         Group(self.category.group_name).send({
             "text": json.dumps(notification),
@@ -69,11 +70,11 @@ class Comment(models.Model):
 
     text=models.CharField(max_length=200, help_text="Enter comment")
 
-    user=models.OneToOneField(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
 
     created_date = models.DateTimeField(default=timezone.now)
 
-    post=models.ForeignKey(Post, related_name="comments")
+    post=models.ForeignKey(Post, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.text

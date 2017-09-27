@@ -1,16 +1,17 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Signup{% endblock %}
+{% block header_text %}Signup{% endblock %}
 
 {% block content %}
 <div class="card">
   <div class="card-header"><br>
-    <h1 class="text-center">Login</h1>
+    <h1 class="text-center">Sign up</h1>
   </div>
   <div class="card-body">
     <form action="" method="post">
-            {% csrf_token %}
           <div class="form-group">
+          {% csrf_token %}
           <table>
           {{ form.as_table }}
           </table><div class="text-center">
