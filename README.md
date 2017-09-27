@@ -60,7 +60,7 @@ in the directory which has manage.py to get your portal up and running.
 * [Bootstrap v4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) - For enchancing look and responsiveness of website
 * [Now-ui-kit](http://demos.creative-tim.com/now-ui-kit/presentation.html) - A custom bootstrap theme
 * [jQuery](https://jquery.com/) - A feature-rich Javascript library
-* [Django](https://www.djangoproject.com/) - A pyhton-based web framework
+* [Django](https://www.djangoproject.com/) - A python-based web framework
 * [Django-channels](https://channels.readthedocs.io/en/stable/) - For realtime changes
 * [Redis](https://redis.io/) - To store django-channels passed messages
 * [PostgreSQL](https://www.postgresql.org/) -  A powerful, open source object-relational database system
