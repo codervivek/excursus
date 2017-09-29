@@ -8,6 +8,9 @@ Post Detail
         <div class="card-body"><br>
           <h1 class="card-title text-center">#{{ post.category.name }}</h1><hr><br><br>
           <h2 class="card-title text-center">{{ post.text }}</h2><br><br>
+          {% if post.photo %}
+          <img src="{{ post.photo.url }}">
+          {% endif %}
           <p class="card-text">{{post.user.username}} posted on {{post.created_date}}</p><br>
           <hr><h4 class="card-title text-center">Comments</h4>
           {% for comment in post.comment_set.all %}<hr>

@@ -10,6 +10,9 @@
             <div class="card-body">
               <a href="{{ post.category.get_absolute_url }}"><h3 class="card-title">#{{ post.category.name }}</h3></a>
                 <a href="{{ post.get_absolute_url }}"><h5 class="card-text mb-2 text-center">{{ post.text_intro }}</h5><br></a>
+                {% if post.photo %}
+                <div class="text-center"><img src="{{ post.photo.url }}" class="rounded"></div><br>
+                {% endif %}
                 {% if post.user.id is user.id %}
                 <div class="card-subtitle text-muted">Posted by you at {{ post.created_date}}<a href="{% url 'post_update' pk=post.id %}"> Edit </a><a href="{% url 'post_delete' pk=post.id %}"> Delete </a></div>
                 {% else %}

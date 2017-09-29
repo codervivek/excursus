@@ -46,12 +46,14 @@
                   <h4 class="modal-title" id="myModalLabel">Add Post</h4>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="{% url 'post_create' %}">
+                    <form method="POST" action="{% url 'post_create' %}" enctype="multipart/form-data">
                         <div class="form-group">
                         {% csrf_token %}
-                            <input name="text" type="text" class="form-control" placeholder="Input text">
-                            <input name="category" type="hidden" value="{{category.id}}">
-                            <input name="user" type="hidden" value="{{user.id}}">
+                            <input name="text" type="text" class="form-control" placeholder="Input text"/>
+                            
+                            <input name="category" type="hidden" value="{{category.id}}"/>
+                            <input name="user" type="hidden" value="{{user.id}}"/>
+                            <button href="{% url 'post_create'%}" class="btn btn-primary btn-sm">Add files</button>
                         <div class="text-center">
                         <input type="submit" value="Submit" class="btn btn-primary"/></div>
                         </div>

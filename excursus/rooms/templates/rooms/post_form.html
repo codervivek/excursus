@@ -6,12 +6,28 @@
           Create Post
         </div>
         <div class="card-body">
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                 {% csrf_token %}
-                <table>
+                <!-- <table>
                 {{ form.as_table }}
-                </table>
+                </table> -->
+                  {% for field in form %}
+                  {% if not field.help_text == "a"  %}
+                      <div class="form-group">
+                          {% if field.errors %}
+                              <ul class="form-errors">
+                              {% for error in field.errors %}
+                                  <li><strong>{{ error|escape }}</strong></li>
+                              {% endfor %}
+                              </ul>
+                          {% endif %}
+                          {{ field.label_tag }} {{ field }} 
+                          {% if field.help_text %}<div class="form-helptext">{{ field.help_text }}</div>{% endif %}
+                      </div>
+                      {% endif %}
+                  {% endfor %}
+                <input name="user" type="hidden" value="{{user.id}}"/>
                 <input type="submit" value="Submit" class="btn btn-primary"/>
                 </div>
             </form>

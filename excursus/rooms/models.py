@@ -30,11 +30,13 @@ class Post(models.Model):
 
     text=models.TextField(max_length=2000, help_text="Enter post")
 
-    user=models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE)
+    user=models.ForeignKey(User, related_name="posts", on_delete=models.CASCADE, help_text="a")
 
     category=models.ForeignKey(Category, on_delete=models.CASCADE)
 
     created_date = models.DateTimeField(default=timezone.now)
+
+    photo=models.FileField(upload_to='uploads/photos/',null=True, blank=True)
 
 
     def get_absolute_url(self):

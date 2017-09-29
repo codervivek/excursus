@@ -142,3 +142,6 @@ CHANNEL_LAYERS = {
 }
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+
+MEDIA_ROOT = '/home/vivekraj/django_test/discussion_portal/excursus/media'
+MEDIA_URL = '/media/'

@@ -81,7 +81,7 @@ from .models import Post, Category, Comment
 from django.http import HttpResponseRedirect
 class PostCreate(CreateView):
     model = Post
-    fields = ['text','category','user']
+    fields = ['text','category','user','photo']
     labels = { 'text': ('Post text')}
     default_data={'user':'test'}
 
