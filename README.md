@@ -1,6 +1,6 @@
 # Excursus
 
-A discussions portal
+A discussion web app which allows users to post updates with different categories.
 
 ## Getting Started
 
